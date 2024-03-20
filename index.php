@@ -7,96 +7,63 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <div class = "main">
-        <form action="includes/formhandler.php" method="post">
-            <label for="firstname">Write your name</label>
-            <input class="firstname" type="text" name="firstname" placeholder="Firstname...">
-
-            <label for="lastname">Write your name</label>
-            <input class="lastname" type="text" name="lastname" placeholder="Lastname...">
-
-            <label for="favouritefruit">Write your name</label>
-            <select class="favouritefruit" name="favouritefruit">
-                <option value="apples">Apples</option>
-                <option value="bananas">Bananas</option>
-                <option value="oranges">Oranges</option>
-                <option value="grapes">Grapes</option>
-            </select>
-            <button type = "submit">Submit</button>
-        </form>
-    </div> -->
-
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "post">
-    <input type="number" name="number1" placeholder="First number">
-    <select name="operator">
-        <option value="add">+</option>
-        <option value="subtract">-</option>
-        <option value="multiply">*</option>
-        <option value="divide">/</option>
-    </select>
-    <input type="number" name="number2" placeholder="Second number">
-    <button>Calculate</button>
-</form>
     <?php
-    // $a = "Hello";
-    // $b = "World!";
-    // $c = $a . " " . $b;
-    // echo $c;
-    // echo 10**3;
 
-    // $a = 19;
+    // $music = array("electric guitar", "drums", "piano");
+    // $music = ["electric guitar", "drums", "piano"];
 
-    // $result = match($a) {
-    //     1 => "Variable a is equal to one",
-    //     4 => "Variable a is equal to four",
-    //     3,6 => "Variable a is equal to three or six",
-    //     default => "IDK",
-    // };
+    // $music[] = "acoustic guitar";
 
-    // echo $result
+    // //unset($music[1]);
+    // array_splice($music, 0, 1);
+    // //echo $music[1];
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $number1 = filter_input(INPUT_POST, "number1", FILTER_SANITIZE_NUMBER_FLOAT);
-        $number2 = filter_input(INPUT_POST, "number2", FILTER_SANITIZE_NUMBER_FLOAT);
-        $operator = htmlspecialchars($_POST["operator"]);
-        
-        // ERror handlers
+    // $bands = [
+    //     "metalcore" => "Killswitch Engage",
+    //     "hard rock" => "Three Days Grace",
+    //     "metal" => "Bullet For My Valentine",
+    // ];
 
-        $errors = false;
-        if(empty($number1) || empty($number2) || empty($operator)){
-            echo "Are you dumb?";
-            $errors = true;
-        }
+    // //echo $bands["metalcore"];
 
-        if(!is_numeric($number1) || !is_numeric($number2) || !is_string($operator)){
-            $errors = true;
-        }
+    // //print_r($bands);
 
+    // //echo count($bands);
+    // sort($bands);
+    // //print_r($bands);
 
-        //Calculations 
-        if(!$errors){
+    // array_push($music, "violin");
 
-            $result = 0;
-            switch ($operator) {
-                case "add":
-                    $result = $number1 + $number2;
-                    break;
-                case "subtract":
-                    $result = $number1 - $number2;
-                    break;
-                case "multiply":
-                    $result = $number1 * $number2;
-                    break;
-                case "divide":
-                    $result = $number1 / $number2;
-                    break;
-                default:
-                    break;
-            }
-            echo $result;
-        }
-    }
+    // array_splice($music, 0, 0, "drums2");
+    // print_r($music);
 
+    // $music2 = [
+    //     array("Sleeping with Sirens", "While She Sleeps"),
+    //     array("Three Days Grace", "Thirty Seconds To Mars"),
+    // ];
+
+    // echo $music2[1][1];
+
+    $string = "Hello World!";
+
+    //echo strlen($string);
+    //echo strpos($string, "o");
+    //echo str_replace("World!", "Romashka", $string);
+
+    $array = ["Sleeping with Sirens", "While She Sleeps"];
+    $array2 = ["Bring Me The Horizon", "Motionless In White"];
+
+    //echo count($array);
+    //echo is_array($array);
+    //array_push($array, "Ice Nine Kills");
+    //print_r($array);
+    //array_pop($array);
+    //print_r($array);
+    //print_r(array_merge($array, $array2));
+    //echo date("Y-m-d H:i:s");
+    //echo time();
+    $date = "2024-03-20 23:52:00";
+    echo strtotime($date);
     ?>
 </body>
 </html>
