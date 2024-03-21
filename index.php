@@ -92,8 +92,23 @@
     define("PI", 3.14);
     //echo PI;
 
-    for ($i=0; $i < 3; $i++) { 
-        echo $i . " ";
+    $length = 4;
+
+    for ($i=0; $length < 3; $i++) { 
+        //echo $i . " ";
+    }
+
+    $point = 0;
+
+    while ($point < 10) {
+        //echo $point;
+        $point = $point + 1 * ($point + 1);
+    }
+
+    $bands = ["Memphis May Fire", "Static-X"];
+
+    foreach ($bands as $band) {
+        echo $band . " ";
     }
 
     ?>
