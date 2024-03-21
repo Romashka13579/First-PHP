@@ -1,3 +1,7 @@
+<?php
+    declare(strict_types = 1);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +67,35 @@
     //echo date("Y-m-d H:i:s");
     //echo time();
     $date = "2024-03-20 23:52:00";
-    echo strtotime($date);
+    //echo strtotime($date);
+
+    $global_variable = "!";
+
+    function firstFunctin(string $name){
+        global $global_variable;
+        // return $GLOBALS["global_variable"];
+        return $name . " is me" . $global_variable;
+    }
+
+    //echo firstFunctin("Romashka");
+
+    function secondFunctin(){
+        static $staticVariable = 0;
+        $staticVariable++;
+        
+        return $staticVariable;
+    }
+
+    //echo secondFunctin();
+    //echo secondFunctin();
+
+    define("PI", 3.14);
+    //echo PI;
+
+    for ($i=0; $i < 3; $i++) { 
+        echo $i . " ";
+    }
+
     ?>
 </body>
 </html>
