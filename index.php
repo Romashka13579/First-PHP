@@ -1,3 +1,14 @@
+<?php
+    session_start();  
+
+    $_SESSION["username"] = "Romashka";
+
+    //unset($_SESSION["username"]);
+    
+    //session_unset();
+    //session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,5 +57,9 @@
             <button type = "submit">Search</button>
         </form>
     </div>
+
+    <?php
+        echo $_SESSION["username"];
+    ?>
 </body>
 </html>

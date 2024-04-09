@@ -8,11 +8,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     try {
         require_once "dbh.inc.php";
 
+        $options = [
+            'cost' => 11
+        ];
+        
+        $hashedPasswd = password_hash($passwd, PASSWORD_BCRYPT, $options); //PASSWORD_DEFAULT, PASSWORD_BCRYPT
+        
+
         $query = "INSERT INTO users (username, passwd, email) VALUES (?, ?, ?);";
 
         $stmt = $pdo->prepare($query);
 
-        $stmt->execute([$username, $passwd, $email]);
+        $stmt->execute([$username, $hashedPasswd, $email]);
 
         $pdo = null;
         $stmt = null;

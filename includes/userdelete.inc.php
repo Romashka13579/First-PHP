@@ -7,12 +7,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     try {
         require_once "dbh.inc.php";
 
+        $options = [
+            'cost' => 11
+        ];
+        
+        $hashedPasswd = password_hash($passwd, PASSWORD_BCRYPT, $options);
+
         $query = "DELETE FROM users WHERE username = :username AND passwd = :passwd;";
 
         $stmt = $pdo->prepare($query);
 
         $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":passwd", $passwd);
+        $stmt->bindParam(":passwd", $hashedPasswd);
 
         $stmt->execute();
 

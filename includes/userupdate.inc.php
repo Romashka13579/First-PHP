@@ -8,12 +8,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     try {
         require_once "dbh.inc.php";
 
+        $options = [
+            'cost' => 11
+        ];
+        
+        $hashedPasswd = password_hash($passwd, PASSWORD_BCRYPT, $options);
+
         $query = "UPDATE users SET username = :username, passwd = :passwd, email = :email WHERE id = 8;";
 
         $stmt = $pdo->prepare($query);
 
         $stmt->bindParam(":username", $username);
-        $stmt->bindParam(":passwd", $passwd);
+        $stmt->bindParam(":passwd", $hashedPasswd);
         $stmt->bindParam(":email", $email);
 
         $stmt->execute();
